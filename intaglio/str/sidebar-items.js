@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["AllSymbols","An iterator over all [`SymbolId`]s in a [`SymbolTable`]."],["Iter","An iterator over all symbols and interned strings in a [`SymbolTable`]."],["Strings","An iterator over all interned strings in a [`SymbolTable`]."],["SymbolTable","UTF-8 string interner."]]});
