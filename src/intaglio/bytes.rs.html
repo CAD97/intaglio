@@ -1019,6 +1019,12 @@
 <span id="1019">1019</span>
 <span id="1020">1020</span>
 <span id="1021">1021</span>
+<span id="1022">1022</span>
+<span id="1023">1023</span>
+<span id="1024">1024</span>
+<span id="1025">1025</span>
+<span id="1026">1026</span>
+<span id="1027">1027</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Intern arbitrary bytes.</span>
 <span class="doccomment">//!</span>
@@ -1046,7 +1052,8 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//! # use std::collections::HashMap;</span>
-<span class="doccomment">//! # use intaglio::bytes::{Symbol, SymbolTable};</span>
+<span class="doccomment">//! # use intaglio::bytes::SymbolTable;</span>
+<span class="doccomment">//! # use intaglio::Symbol;</span>
 <span class="doccomment">//! # fn example() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {</span>
 <span class="doccomment">//! let mut table = SymbolTable::new();</span>
 <span class="doccomment">//! let sym = table.intern(&amp;b&quot;abc&quot;[..])?;</span>
@@ -1083,7 +1090,7 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">collections</span>::<span class="ident">hash_map</span>::<span class="ident">RandomState</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">collections</span>::<span class="ident">HashMap</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">Symbol</span>, <span class="ident">SymbolOverflowError</span>, <span class="ident">DEFAULT_SYMBOL_TABLE_CAPACITY</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">Symbol</span>, <span class="ident">SymbolOverflowError</span>, <span class="ident">DEFAULT_SYMBOL_TABLE_CAPACITY</span>};
 
 <span class="doccomment">/// Wrapper around `&amp;&#39;static [u8]` that supports deallocating references created</span>
 <span class="doccomment">/// via [`Box::leak`].</span>
@@ -1400,7 +1407,8 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">/// # use std::collections::HashMap;</span>
-<span class="doccomment">/// # use intaglio::bytes::{Symbol, SymbolTable};</span>
+<span class="doccomment">/// # use intaglio::bytes::SymbolTable;</span>
+<span class="doccomment">/// # use intaglio::Symbol;</span>
 <span class="doccomment">/// # fn example() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {</span>
 <span class="doccomment">/// let mut table = SymbolTable::new();</span>
 <span class="doccomment">/// let sym = table.intern(b&quot;abc&quot;.to_vec())?;</span>
@@ -1626,7 +1634,8 @@
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// # use intaglio::bytes::{Symbol, SymbolTable};</span>
+    <span class="doccomment">/// # use intaglio::bytes::SymbolTable;</span>
+    <span class="doccomment">/// # use intaglio::Symbol;</span>
     <span class="doccomment">/// # fn example() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {</span>
     <span class="doccomment">/// let mut table = SymbolTable::new();</span>
     <span class="doccomment">/// assert!(!table.contains(Symbol::new(0)));</span>
@@ -1652,7 +1661,8 @@
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// # use intaglio::bytes::{Symbol, SymbolTable};</span>
+    <span class="doccomment">/// # use intaglio::bytes::SymbolTable;</span>
+    <span class="doccomment">/// # use intaglio::Symbol;</span>
     <span class="doccomment">/// # fn example() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {</span>
     <span class="doccomment">/// let mut table = SymbolTable::new();</span>
     <span class="doccomment">/// assert!(!table.get(Symbol::new(0)).is_none());</span>
@@ -1676,7 +1686,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">/// # use std::collections::HashMap;</span>
-    <span class="doccomment">/// # use intaglio::bytes::{Symbol, SymbolTable};</span>
+    <span class="doccomment">/// # use intaglio::bytes::SymbolTable;</span>
+    <span class="doccomment">/// # use intaglio::Symbol;</span>
     <span class="doccomment">/// # fn example() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {</span>
     <span class="doccomment">/// let mut table = SymbolTable::new();</span>
     <span class="doccomment">/// table.intern(b&quot;abc&quot;.to_vec())?;</span>
@@ -1718,7 +1729,8 @@
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// # use intaglio::bytes::{Symbol, SymbolTable};</span>
+    <span class="doccomment">/// # use intaglio::bytes::SymbolTable;</span>
+    <span class="doccomment">/// # use intaglio::Symbol;</span>
     <span class="doccomment">/// # fn example() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {</span>
     <span class="doccomment">/// let mut table = SymbolTable::new();</span>
     <span class="doccomment">/// table.intern(b&quot;abc&quot;.to_vec())?;</span>
