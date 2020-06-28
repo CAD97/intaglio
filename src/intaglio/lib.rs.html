@@ -264,6 +264,7 @@
 <span id="264">264</span>
 <span id="265">265</span>
 <span id="266">266</span>
+<span id="267">267</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">warn</span>(<span class="ident">clippy</span>::<span class="ident">all</span>)]</span>
 <span class="attribute">#![<span class="ident">warn</span>(<span class="ident">clippy</span>::<span class="ident">pedantic</span>)]</span>
@@ -347,7 +348,8 @@
 <span class="comment">//</span>
 <span class="comment">// This const-evaluated expression will fail to compile if this invariant does</span>
 <span class="comment">// not hold.</span>
-<span class="kw">const</span> <span class="ident">_U32_FITS_IN_USIZE_ASSERTION</span>: <span class="kw-2">&amp;</span>[()] <span class="op">=</span> <span class="kw-2">&amp;</span>[(); <span class="ident">size_of</span>::<span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>() <span class="op">-</span> <span class="ident">size_of</span>::<span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>()];
+<span class="kw">const</span> <span class="ident">_U32_FITS_IN_USIZE_ASSERTION</span>: [(); <span class="number">0</span>] <span class="op">=</span>
+    [(); (<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>() <span class="op">&gt;</span><span class="op">=</span> <span class="ident">size_of</span>::<span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>()) <span class="kw">as</span> <span class="ident">usize</span> <span class="op">-</span> <span class="number">1</span>];
 
 <span class="doccomment">/// Default capacity for new a [`SymbolTable`].</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DEFAULT_SYMBOL_TABLE_CAPACITY</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">4096</span>;
