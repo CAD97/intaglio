@@ -1023,6 +1023,7 @@
 <span id="1023">1023</span>
 <span id="1024">1024</span>
 <span id="1025">1025</span>
+<span id="1026">1026</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Intaglio interner for UTF-8 [`String`]s.</span>
 <span class="doccomment">//!</span>
@@ -1108,7 +1109,8 @@
             <span class="comment">// only occur while the `SymbolTable` is being dropped which</span>
             <span class="comment">// requires unique access and thus no outstanding borrows of this</span>
             <span class="comment">// reference.</span>
-            <span class="kw">let</span> <span class="ident">boxed</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">Box</span>::<span class="ident">from_raw</span>(<span class="ident">slice</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">str</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">str</span>) };
+            <span class="kw">let</span> <span class="ident">slice</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">str</span> <span class="op">=</span> <span class="ident">slice</span>;
+            <span class="kw">let</span> <span class="ident">boxed</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">Box</span>::<span class="ident">from_raw</span>(<span class="ident">slice</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">str</span>) };
             <span class="ident">drop</span>(<span class="ident">boxed</span>);
         }
     }

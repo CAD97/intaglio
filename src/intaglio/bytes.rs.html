@@ -1056,6 +1056,7 @@
 <span id="1056">1056</span>
 <span id="1057">1057</span>
 <span id="1058">1058</span>
+<span id="1059">1059</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Intern arbitrary bytes.</span>
 <span class="doccomment">//!</span>
@@ -1185,7 +1186,8 @@
             <span class="comment">// only occur while the `SymbolTable` is being dropped which</span>
             <span class="comment">// requires unique access and thus no outstanding borrows of this</span>
             <span class="comment">// reference.</span>
-            <span class="kw">let</span> <span class="ident">boxed</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">Box</span>::<span class="ident">from_raw</span>(<span class="ident">slice</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> [<span class="ident">u8</span>] <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> [<span class="ident">u8</span>]) };
+            <span class="kw">let</span> <span class="ident">slice</span>: <span class="kw-2">*</span><span class="kw">const</span> [<span class="ident">u8</span>] <span class="op">=</span> <span class="ident">slice</span>;
+            <span class="kw">let</span> <span class="ident">boxed</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">Box</span>::<span class="ident">from_raw</span>(<span class="ident">slice</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> [<span class="ident">u8</span>]) };
             <span class="ident">drop</span>(<span class="ident">boxed</span>);
         }
     }
