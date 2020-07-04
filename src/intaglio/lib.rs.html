@@ -301,6 +301,16 @@
 <span id="301">301</span>
 <span id="302">302</span>
 <span id="303">303</span>
+<span id="304">304</span>
+<span id="305">305</span>
+<span id="306">306</span>
+<span id="307">307</span>
+<span id="308">308</span>
+<span id="309">309</span>
+<span id="310">310</span>
+<span id="311">311</span>
+<span id="312">312</span>
+<span id="313">313</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">warn</span>(<span class="ident">clippy</span>::<span class="ident">all</span>)]</span>
 <span class="attribute">#![<span class="ident">warn</span>(<span class="ident">clippy</span>::<span class="ident">pedantic</span>)]</span>
@@ -323,7 +333,7 @@
 <span class="doccomment">//! For more specific details on the API for interning strings into a symbol</span>
 <span class="doccomment">//! table, please see the documentation for the [`SymbolTable`] type.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! # Example</span>
+<span class="doccomment">//! # Examples</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//! # use intaglio::SymbolTable;</span>
@@ -335,6 +345,7 @@
 <span class="doccomment">//! assert!(table.is_interned(&quot;abc&quot;));</span>
 <span class="doccomment">//! # Ok(())</span>
 <span class="doccomment">//! # }</span>
+<span class="doccomment">//! # example().unwrap();</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! # String interning</span>
@@ -582,6 +593,14 @@
     <span class="doccomment">/// `Symbol`s are not constrained to the `SymbolTable` which created them.</span>
     <span class="doccomment">/// No runtime checks ensure that [`SymbolTable::get`] is called with a</span>
     <span class="doccomment">/// `Symbol` that the table itself issued.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Examples</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">/// # use intaglio::Symbol;</span>
+    <span class="doccomment">/// let sym = Symbol::new(263);</span>
+    <span class="doccomment">/// assert_eq!(263, sym.id());</span>
+    <span class="doccomment">/// ```</span>
     <span class="attribute">#[<span class="ident">must_use</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">sym</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">Self</span>::<span class="ident">from</span>(<span class="ident">sym</span>)
@@ -589,7 +608,7 @@
 
     <span class="doccomment">/// Return the `u32` identifier from this `Symbol`.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// # Example</span>
+    <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">/// # use intaglio::SymbolTable;</span>
@@ -599,6 +618,7 @@
     <span class="doccomment">/// assert_eq!(u32::from(sym), sym.id());</span>
     <span class="doccomment">/// # Ok(())</span>
     <span class="doccomment">/// # }</span>
+    <span class="doccomment">/// # example().unwrap();</span>
     <span class="doccomment">/// ```</span>
     <span class="attribute">#[<span class="ident">must_use</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">id</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
